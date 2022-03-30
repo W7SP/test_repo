@@ -1,0 +1,30 @@
+{% extends 'base/base.html' %}
+{% block page_content %}
+    <h1>Edit Expense</h1>
+
+    <!-- Edit Expense Form -->
+    <div class="form">
+        <form method="POST" action="{% url 'edit expense' expense.pk %}" enctype="multipart/form-data">
+{#            <label for="title">Title</label>#}
+{#            <input type="text" name="title" value="{{ expense.title }}" maxlength="50" required="" id="title">#}
+{##}
+{#            <label for="description">Description</label>#}
+{#            <textarea name="description" cols="40" rows="10" id="description"#}
+{#            >{{ expense.description }}</textarea>#}
+{##}
+{#            <label for="image_url">Image</label>#}
+{#            <input type="url" name="image_url"#}
+{#                   value="{{ expense.image }}" maxlength="200"#}
+{#                   required="" id="image_url">#}
+{##}
+{#            <label for="price">Price</label>#}
+{#            <input type="number" name="price" value="{{ expense.price|floatformat:2 }}" step="any" required="" id="price">#}
+{#            <!-- Edit Button -->#}
+            {{ form }}
+            {% csrf_token %}
+            <input type="submit" value="Edit">
+        </form>
+        <!-- End Edit Expense Form -->
+
+    </div>
+{% endblock %}
